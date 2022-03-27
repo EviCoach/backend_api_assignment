@@ -1,0 +1,30 @@
+{
+  "name": "money_karma_backend_api_assignment",
+  "version": "1.0.0",
+  "description": "Backend API assignment with nodejs, postgresql...",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EviCoach/backend_api_assignment.git"
+  },
+  "keywords": [
+    "backend",
+    "api"
+  ],
+  "author": "Evi Owhotemu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EviCoach/backend_api_assignment/issues"
+  },
+  "homepage": "https://github.com/EviCoach/backend_api_assignment#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.17.0"
+  }
+}
