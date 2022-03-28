@@ -4,6 +4,8 @@
   "description": "Backend API assignment with nodejs, postgresql...",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
     "test": "jest --watch"
   },
   "repository": {
@@ -26,6 +28,7 @@
     "express": "^4.17.3",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
+    "redis": "^4.0.4",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {

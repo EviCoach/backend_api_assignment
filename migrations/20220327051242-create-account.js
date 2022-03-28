@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id: {
-        type: DataTypes.STRING
-      },
       auth_id: {
         type: DataTypes.STRING,
         allowNull: false
@@ -18,14 +15,6 @@ module.exports = {
       username: {
         type: DataTypes.STRING,
         allowNull: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
       }
     });
   },

@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Phone_number extends Model {
     /**
@@ -15,9 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Phone_number.init({
     id: {
-      type: DataTypes.STRING,
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false
     },
@@ -31,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    tableName: 'phone_numbers',
+    timestamps: false,
+    tableName: 'phone_number',
     modelName: 'Phone_number',
   });
   return Phone_number;

@@ -8,22 +8,11 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      id: {
-        type: DataTypes.STRING
-      },
       number: {
         type: DataTypes.STRING
       },
       account_id: {
         type: DataTypes.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
       }
     });
   },

@@ -12,11 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+
+    toJSON() {
+      return { ...this.get() /** any overriden key with 'undefined' will be removed */ }
+    }
   }
   Account.init({
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false
     },
@@ -30,7 +33,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    tableName: 'accounts',
+    timestamps: false,
+    tableName: 'account',
     modelName: 'Account',
   });
   return Account;
