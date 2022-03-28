@@ -1,12 +1,28 @@
 const { sequelize } = require("./models");
 const express = require("express");
 const cors = require("cors");
+const { authenticate } = require("./app/auth/authenticate");
 
 const PORT = process.env.PORT || 3003;
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+require("./startups")
+
+app.use(authenticate)
+
+app.use("/api", require("./routes"));
+
+app.use((req, res, next) => {
+    return res.send({ message: "Route not found" });
+});
+
+app.use((req, res, next) => {
+    res.send({
+        message: "", error: "unknown failure"
+    })
+});
 
 app.listen(PORT, async () => {
     await main();
@@ -14,5 +30,5 @@ app.listen(PORT, async () => {
 });
 
 async function main() {
-    await sequelize.sync({force: true});
+    await sequelize.authenticate();
 }
