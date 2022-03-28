@@ -4,6 +4,8 @@ const ajv = new Ajv({ allErrors: true });
 const validate = (schema, data) => {
     const validate = ajv.compile(schema);
     const valid = validate(data);
+    console.log(validate.errors);
+    
     if (valid) return null;
     const errors = validate.errors.map(error => {
         let key = "";
@@ -12,8 +14,13 @@ const validate = (schema, data) => {
             key = error.instancePath.substr(errorKey + 1);
         }
         let value = {};
-        if (key) value.key = key;
-        value.message = `${key.length === 0 ? "" : `${key} `}${error.message}`;
+        if (error.keyword === 'type') {
+            value.error = `${key} is invalid`
+        }
+        if (error.keyword === 'required') {
+            value.error = `${error.params.missingProperty} is missing`;
+        }
+        console.log(JSON.stringify("Params", error.params))
         return value;
     });
     return errors;

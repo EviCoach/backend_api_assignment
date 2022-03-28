@@ -12,6 +12,8 @@ const smsValidate = (req, res, next) => {
     };
 
     const error = validate(schema, req.body);
+    // if (error) return error;
+    // return null;
     if (error) return res.json(error);
     return next();
 }

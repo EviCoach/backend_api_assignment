@@ -18,8 +18,8 @@ app.use((req, res, next) => {
     return res.send({ message: "Route not found" });
 });
 
-app.use((req, res, next, err) => {
-    res.json({
+app.use((req, res, next) => {
+    res.send({
         message: "", error: "unknown failure"
     })
 });
